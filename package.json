@@ -1,0 +1,27 @@
+{
+  "name": "gif2video",
+  "version": "0.0.1",
+  "description": "A Node.js for converting .gif file to .mp4, .webm video file. ",
+  "main": "./src/index.js",
+  "scripts": {
+    "test-convert": "node ./src/convert.js",
+    "start-debug": "node --inspect ./src/index",
+    "start": "node ./src/index"
+  },
+  "keywords": [
+    "Node.js",
+    "Gif",
+    "Webm",
+    "MP4",
+    "FFmpeg"
+  ],
+  "author": "juniortour@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "express": "^4.18.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1"
+  }
+}
