@@ -1,10 +1,9 @@
 {
   "name": "gif2video",
   "version": "0.0.1",
-  "description": "A Node.js for converting .gif file to .mp4, .webm video file. ",
+  "description": "A Node.js server for converting .gif file to .mp4, .webm video file. ",
   "main": "./src/index.js",
   "scripts": {
-    "test-convert": "node ./src/convert.js",
     "start-debug": "node --inspect ./src/index",
     "start": "node ./src/index"
   },

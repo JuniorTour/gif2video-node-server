@@ -14,15 +14,13 @@ app.get('/upload-page', (req, res) => {
 
 app.post('/gif2video', upload.single('file'), async (req, res) => {
   console.log(`/gif2video get formData`);
-  const fileId = uuid();  // 生成 ID 用于到CDN上查找Gif图片转化后的视频文件
-
-  // typeof req.file === 'object'
-  // file data: https://github.com/expressjs/multer#file-information
-  // req.body: name, type
-  startGif2Video(req.file, fileId);
+  const fileId = uuid();
+  
+  // https://www.npmjs.com/package/multer#file-information
+  startGif2Video(fileId, req.file);
 
   res.send({
-    msg: 'upload success',
+    msg: 'FormData数据已接收',
     fileId,
   });
 });

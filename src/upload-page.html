@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>文件上传示例</title>
-</head>
-<body>
-  <h1>文件上传</h1>
-  <input type="file" id="fileInput" name="file" />
-  <button onclick="uploadFile()">上传</button>
+  <head>
+    <title>文件上传示例</title>
+  </head>
+  <body>
+    <h1>文件上传</h1>
+    <input type="file" id="fileInput" name="file" />
+    <button onclick="uploadFile()">上传</button>
+    <div>
+      <br />
+      <a target="_blank" href="https://github.com/JuniorTour/fe-optimization-demo"
+        >《现代前端工程体验优化》示例</a
+      >
+    </div>
 
-  <script>
-    function uploadFile() {
-      var fileInput = document.getElementById("fileInput");
-      var file = fileInput.files[0];
+    <script>
+      function uploadFile() {
+        var fileInput = document.getElementById('fileInput');
+        var file = fileInput.files[0];
 
-      var formData = new FormData();
-      formData.append("file", file);
-      formData.append("name", file.name);
-      formData.append("type", file.type);
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('name', file.name);
+        formData.append('type', file.type);
 
-      fetch("http://localhost:3088/gif2video", {
-        method: "POST",
-        body: formData
-      })
-      .then(function(response) {
-        if (response.ok) {
-          // 请求成功处理逻辑
-          return response.text();
-        } else {
-          // 请求失败处理逻辑
-          throw new Error("上传文件失败");
-        }
-      })
-      .then(function(data) {
-        console.log(data);
-      })
-      .catch(function(error) {
-        // 错误处理逻辑
-        console.error(error);
-      });
-    }
-  </script>
-</body>
+        fetch('http://localhost:3088/gif2video', {
+          method: 'POST',
+          body: formData,
+        })
+          .then(function (response) {
+            if (response.ok) {
+              // 请求成功处理逻辑
+              return response.text();
+            } else {
+              // 请求失败处理逻辑
+              throw new Error('上传文件失败');
+            }
+          })
+          .then(function (data) {
+            console.log(data);
+          })
+          .catch(function (error) {
+            // 错误处理逻辑
+            console.error(error);
+          });
+      }
+    </script>
+  </body>
 </html>
