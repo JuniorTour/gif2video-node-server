@@ -2,6 +2,7 @@ const ffmpegPath = require('@ffmpeg-installer/ffmpeg');
 const ffmpeg = require('fluent-ffmpeg');
 const path = require('path');
 const fs = require('fs');
+const { getFilesStatus } = require('./metric');
 
 ffmpeg.setFfmpegPath(ffmpegPath.path);
 const CONVERT_STATUS = {
@@ -117,7 +118,8 @@ function afterConvertRenameDir(fileId, convertSuccess) {
 async function startGif2Video(fileId, file) {
   saveFile(fileId, file);
   const convertSuccess = await runConvertFile(fileId);
-  afterConvertRenameDir(fileId, convertSuccess)
+  getFilesStatus(getGifDir(fileId));
+  afterConvertRenameDir(fileId, convertSuccess);
   // TODO upload to CDN File Server
 }
 
